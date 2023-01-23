@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
-public class Functional1 {
+public class ConsumerExample1 {
     
     public static void main(String[] args) {
 
