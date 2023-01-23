@@ -38,7 +38,18 @@ public class Functional1 {
         System.out.println("=====================");
 
         printStoreName.accept(gStore);
-        gStore.geGuitars().forEach(printModel.andThen(printPrice)); // consumer chaining
+        // consumer chaining
+        /*below code won't work because I defined a consumer and didn't call the accept method
+        Thus, forEach method will call accept method of the below defined Consumer and not the
+        accept method of printModel consumer
+        */
+        gStore.geGuitars().forEach(g -> printModel.andThen(printPrice));
+        //this will work
+        gStore.geGuitars().forEach(g -> printModel.andThen(printPrice).accept(g));
+        /*this works because here consumer IS printModel and I'm not defining a new consumer
+        thus, when forEach method will call accept method, it will call accept method of the printModel
+        consumer*/
+        gStore.geGuitars().forEach(printModel.andThen(printPrice)); 
     }
 
     static class Guitar {
