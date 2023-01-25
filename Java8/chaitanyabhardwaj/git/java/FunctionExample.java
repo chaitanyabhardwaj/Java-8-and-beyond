@@ -16,9 +16,9 @@ public class FunctionExample {
             return true;
         };
         //chain : removeWhiteSpaces -> str2Int -> isPrime
-        System.out.println(removeWhiteSpaces.andThen(str2Int).andThen(isPrime).apply("109"));
+        System.out.println(removeWhiteSpaces.andThen(str2Int).andThen(isPrime).apply("1  09 "));
         //chain :  [str2Int <- removeWhiteSpaces] -> isPrime
-        System.out.println(str2Int.compose(removeWhiteSpaces).andThen(isPrime).apply("127"));
+        System.out.println(str2Int.compose(removeWhiteSpaces).andThen(isPrime).apply(" 1 2  7 "));
     }
 
 }
