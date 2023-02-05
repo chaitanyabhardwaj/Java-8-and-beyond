@@ -66,6 +66,11 @@ public class ConsumerExample1 {
 
         public float getPrice() { return this.price; }
 
+        @Override
+        public String toString() {
+            return this.model + " -> " + this.price;
+        }
+
     }
 
     static class GuitarStore {
