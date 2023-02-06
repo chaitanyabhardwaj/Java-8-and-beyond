@@ -1,4 +1,4 @@
-package chaitanyabhardwaj.git.java.steams;
+package chaitanyabhardwaj.git.java.streams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import chaitanyabhardwaj.git.java.ConsumerExample1.Guitar;
 import chaitanyabhardwaj.git.java.ConsumerExample1.GuitarStore;
 
-public class FlatMapExample {
+public class CountDistinctSortedExample {
     
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         //initializing guitar
         Guitar g1 = new Guitar("Epiphone", 500);
         Guitar g2 = new Guitar("Fender", 600);
@@ -17,13 +17,13 @@ public class FlatMapExample {
 
         //initializing guitarStore
         List<Guitar> list = new ArrayList<>();
-        list.add(g1);
+        list.add(g2);
         list.add(g2);
         list.add(g1);
         GuitarStore gStore1 = new GuitarStore("Venus",list);
         list = new ArrayList<>();
-        list.add(g1);
         list.add(g3);
+        list.add(g1);
         list.add(g3);
         GuitarStore gStore2 = new GuitarStore("Venus",list);
 
@@ -33,13 +33,21 @@ public class FlatMapExample {
         guitarMasterList.add(gStore2.geGuitars());
 
         //flatting the list using FlatMap
-        List<Guitar> guitarListFlattend = guitarMasterList.stream()
+        //using distinct to eliminate duplicate elements
+        //using sorted to get a sorted stream of guitars
+        List<String> guitarListFlattend = guitarMasterList.stream()
             //input -> Stream<List<Guitars>>
             //output -> Stream<Guitars>
             .flatMap(List::stream)
+            .map(Guitar::getModel)
+            .distinct()
+            .sorted()
             .collect(Collectors.toList());
         
         guitarListFlattend.forEach(System.out::println);
+
+        //using count to count the number of guitars
+        System.out.println(guitarListFlattend.stream().count());
     }
 
 }

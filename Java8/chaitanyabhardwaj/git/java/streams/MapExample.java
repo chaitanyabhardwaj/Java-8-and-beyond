@@ -1,4 +1,4 @@
-package chaitanyabhardwaj.git.java.steams;
+package chaitanyabhardwaj.git.java.streams;
 
 import java.util.ArrayList;
 import java.util.List;
