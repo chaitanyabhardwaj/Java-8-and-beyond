@@ -1,6 +1,7 @@
 package chaitanyabhardwaj.git.java.streams;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,6 +49,28 @@ public class CountDistinctSortedExample {
 
         //using count to count the number of guitars
         System.out.println(guitarListFlattend.stream().count());
+
+        //sorted using comparator based on price
+        List<Guitar> guitarListFlattend1 = guitarMasterList.stream()
+            //input -> Stream<List<Guitars>>
+            //output -> Stream<Guitars>
+            .flatMap(List::stream)
+            .distinct()
+            .sorted(Comparator.comparing(Guitar::getPrice))
+            .collect(Collectors.toList());
+        
+        guitarListFlattend1.forEach(System.out::println);
+
+        //sorted using comparator based on price high to low
+        guitarListFlattend1 = guitarMasterList.stream()
+            //input -> Stream<List<Guitars>>
+            //output -> Stream<Guitars>
+            .flatMap(List::stream)
+            .distinct()
+            .sorted(Comparator.comparing(Guitar::getPrice).reversed())
+            .collect(Collectors.toList());
+        
+        guitarListFlattend1.forEach(System.out::println);
     }
 
 }
