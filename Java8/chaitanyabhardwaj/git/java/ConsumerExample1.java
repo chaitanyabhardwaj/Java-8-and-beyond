@@ -52,7 +52,7 @@ public class ConsumerExample1 {
         gStore.geGuitars().forEach(printModel.andThen(printPrice)); 
     }
 
-    static class Guitar {
+    public static class Guitar {
 
         private float price;
         private String model;
@@ -73,7 +73,7 @@ public class ConsumerExample1 {
 
     }
 
-    static class GuitarStore {
+    public static class GuitarStore {
 
         private String storeName;
         private List<Guitar> modelList;
