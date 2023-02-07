@@ -23,12 +23,10 @@ public class ReduceExample {
         GuitarStore gStore = new GuitarStore("Venus",list);
 
         //using reduce method to sum price of all guitars
-        Optional<Float> priceSum = gStore.geGuitars().stream()
+        Float priceSum = gStore.geGuitars().stream()
         .map(Guitar::getPrice)
-        .reduce((p1,p2) -> p1 + p2);
-
-        if(priceSum.isPresent())
-            System.out.println(priceSum.get());
+        .reduce(0f, Float::sum);
+        System.out.println(priceSum);
 
         //using reduce method to find reduce the stream to the highest priced guitar
         Optional<Guitar> highestPrice = gStore.geGuitars().stream()
