@@ -52,7 +52,7 @@ public class ConsumerExample1 {
         gStore.geGuitars().forEach(printModel.andThen(printPrice)); 
     }
 
-    public static class Guitar {
+    public static class Guitar implements Comparable<Guitar> {
 
         private float price;
         private String model;
@@ -69,6 +69,11 @@ public class ConsumerExample1 {
         @Override
         public String toString() {
             return this.model + " -> " + this.price;
+        }
+
+        @Override
+        public int compareTo(Guitar g) {
+            return this.getModel().compareTo(g.getModel());
         }
 
     }
