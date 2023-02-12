@@ -37,6 +37,21 @@ public class DefaultMethodExample {
         //java 8, using default method introduced in List interface, in reverse order
         list.sort(Comparator.reverseOrder());
         System.out.println(list);
+        //java 8, using default method introduced in List interface, sorting with custom comparator
+        Comparator<Guitar> priceComparator = Comparator.comparingDouble(Guitar::getPrice);
+        list.sort(priceComparator);
+        System.out.println(list);
+        //java 8, using default method introduced in List interface, sorting with custom comparator, reversed
+        list.sort(priceComparator.reversed());
+        System.out.println(list);
+        //java 8, using default method introduced in List interface, sorting with custom comparator, null value
+        list.add(null);
+        Comparator<Guitar> nullComparator1 = Comparator.nullsFirst(priceComparator);
+        list.sort(nullComparator1);
+        System.out.println(list);
+        Comparator<Guitar> nullComparator2 = Comparator.nullsLast(priceComparator);
+        list.sort(nullComparator2);
+        System.out.println(list);
     }
 
 }
