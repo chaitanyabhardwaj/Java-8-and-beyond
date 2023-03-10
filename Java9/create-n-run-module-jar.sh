@@ -3,7 +3,7 @@ module-info.java \
 chaitanyabhardwaj/git/java/GuitarStore.java \
 chaitanyabhardwaj/git/java/module/ModuleAppExample1.java
 
-jar -c -f target/moduleapp1.jar --main-class chaitanyabhardwaj.git.java.module.ModuleAppExample \
+jar -c -f target/moduleapp1.jar --main-class chaitanyabhardwaj.git.java.module.ModuleAppExample1 \
 -C target/classes/ .
 
 rm -r target/classes
