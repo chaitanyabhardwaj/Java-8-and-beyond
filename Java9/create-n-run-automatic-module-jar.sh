@@ -6,4 +6,4 @@ jar -c -f target/moduleapp1.jar -C target/classes/ .
 
 rm -r target/classes
 
-java -cp target/moduleapp1.jar chaitanyabhardwaj.git.java.module.ModuleAppExample1
+java -p target -m moduleapp1/chaitanyabhardwaj.git.java.module.ModuleAppExample1
