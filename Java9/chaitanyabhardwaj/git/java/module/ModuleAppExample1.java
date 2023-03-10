@@ -22,6 +22,11 @@ public class ModuleAppExample1 {
         GuitarStore gStore = new GuitarStore("Venus", guitarList);
         LOGGER.info("Class name " + ModuleAppExample1.class.getName());
         gStore.getGuitarList().forEach(System.out::println);
+
+        //printing module name
+        Module module = ModuleAppExample1.class.getModule();
+        LOGGER.info(module.toString());
+        LOGGER.info(module.getName());
     }
 
 }
