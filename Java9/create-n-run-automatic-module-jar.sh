@@ -7,3 +7,6 @@ jar -c -f target/moduleapp1.jar -C target/classes/ .
 rm -r target/classes
 
 java -p target -m moduleapp1/chaitanyabhardwaj.git.java.module.ModuleAppExample1
+
+#get automatic module description
+jar -f ./target/moduleapp1.jar -d
