@@ -1,0 +1,12 @@
+#!/usr/bin/java --source 17
+
+public class SingleFileSourceCode {
+
+    //Run this file from termnial like a bash file
+    //> ./SingleFileSourceCode
+
+    public static void main(String[] args) {
+        System.out.println("This is a Java Script!");
+    }
+
+}
